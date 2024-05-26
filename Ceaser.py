@@ -1,55 +1,56 @@
-def sezar_sifre_coz(ciphertext, anahtar):
-    kucuk_alfabe = 'abcçdefgğhıijklmnoöprsştuüvyz'
-    buyuk_alfabe = 'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ'
-    cozulmus_metin = ''
+def ceaser_decrypt(plain_text, key):
+    turkish_alphabet_lower_case = 'abcçdefgğhıijklmnoöprsştuüvyz'
+    turkish_alphabet_upper_case = 'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ'
+    decrypted_text = ''
     
-    for karakter in ciphertext:
-        if karakter in kucuk_alfabe:
-            pozisyon = kucuk_alfabe.find(karakter)
-            yeni_pozisyon = (pozisyon - anahtar) % 29
-            cozulmus_metin += kucuk_alfabe[yeni_pozisyon]
-        elif karakter in buyuk_alfabe:
-            pozisyon = buyuk_alfabe.find(karakter)
-            yeni_pozisyon = (pozisyon - anahtar) % 29
-            cozulmus_metin += buyuk_alfabe[yeni_pozisyon]
+    for char in plain_text:
+        if char in turkish_alphabet_lower_case:
+            position = turkish_alphabet_lower_case.find(char)
+            new_position = (position - key) % 29
+            decrypted_text += turkish_alphabet_lower_case[new_position]
+        elif char in turkish_alphabet_upper_case:
+            position = turkish_alphabet_upper_case.find(char)
+            new_position = (position - key) % 29
+            decrypted_text += turkish_alphabet_upper_case[new_position]
         else:
-            cozulmus_metin += karakter
+            decrypted_text += char
     
-    return cozulmus_metin
+    return decrypted_text
 
-def sezar_sifrele(metin, anahtar):
-    kucuk_alfabe = 'abcçdefgğhıijklmnoöprsştuüvyz'
-    buyuk_alfabe = 'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ'
-    sifreli_metin = ''
+def ceaser_encrypt(text, key):
+    turkish_alphabet_lower_case = 'abcçdefgğhıijklmnoöprsştuüvyz'
+    turkish_alphabet_upper_case = 'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ'
+    encrypted_text = ''
     
-    for karakter in metin:
-        if karakter in kucuk_alfabe:
-            pozisyon = kucuk_alfabe.find(karakter)
-            yeni_pozisyon = (pozisyon + anahtar) % 29
-            sifreli_metin += kucuk_alfabe[yeni_pozisyon]
-        elif karakter in buyuk_alfabe:
-            pozisyon = buyuk_alfabe.find(karakter)
-            yeni_pozisyon = (pozisyon + anahtar) % 29
-            sifreli_metin += buyuk_alfabe[yeni_pozisyon]
+    for char in text:
+        if char in turkish_alphabet_lower_case:
+            position = turkish_alphabet_lower_case.find(char)
+            new_position = (position + key) % 29
+            encrypted_text += turkish_alphabet_lower_case[new_position]
+        elif char in turkish_alphabet_upper_case:
+            position = turkish_alphabet_upper_case.find(char)
+            new_position = (position + key) % 29
+            encrypted_text += turkish_alphabet_upper_case[new_position]
         else:
-            sifreli_metin += karakter
+            encrypted_text += char
     
-    return sifreli_metin
-sifreli_metin = 'CEZES NĞNS LIÜ ES LIÜ ÇIÜHI'
-orijinal_metin = 'MERHABA'
+    return encrypted_text
+encrypted_text = 'CEZES NĞNS LIÜ ES LIÜ ÇIÜHI'
+original_text = 'MERHABA'
+print("*****************************************************************")
 
-anahtarlar = [5,3,4]
-cozulmus_metin = sezar_sifre_coz(sifreli_metin, anahtarlar[0])
-kriptolanmis_metin = sezar_sifre_coz(orijinal_metin, anahtarlar[1])
+keys = [5,3,4]
+decrypted_text = ceaser_decrypt(encrypted_text, keys[0])
+print('Encrypted text: ', encrypted_text)
+print('Decrypted text: ', decrypted_text)
 
-print('----1. Soru----')
-print('Şifreli Metin: ', sifreli_metin)
-print('Çözülmüş metin:', cozulmus_metin)
-print('---------------')
-print('----2. Soru----')
-print('Orijinal Metin: ', orijinal_metin)
-print('Kriptolanmış metin:', kriptolanmis_metin)
-print('---------------')
+print("*****************************************************************")
+
+encrypted_text = ceaser_encrypt(original_text, keys[1])
+print('Decrypted text: ', original_text)
+print('Encrypted text: ', encrypted_text)
+
+print("*****************************************************************")
 
 
 
