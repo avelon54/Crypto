@@ -42,8 +42,7 @@ def route_sifre_coz(sifreli_metin, sutun_sayisi):
                 kalan_satir_index -= 1
                 direction = 1
                 
-            elif sutun_direction == 1 and sutun_index == kalan_sutun_index and sutun_index != baslangıc_sutun_index:
-                
+            elif sutun_direction == 1 and sutun_index == kalan_sutun_index and sutun_index != baslangıc_sutun_index:     
                 sutun_direction = 0
                 direction = 0
                 increase_satir *= -1
@@ -70,4 +69,6 @@ def route_sifre_coz(sifreli_metin, sutun_sayisi):
     return cozulmus_metin
 
 route_sifreli_metin = 'AİRERXXEDRANNVATÇEHEYNHİ'
-print(len(route_sifreli_metin))
+sutun_sayisi = 4
+sonuc = route_sifre_coz(route_sifreli_metin, sutun_sayisi)
+print(sonuc)
