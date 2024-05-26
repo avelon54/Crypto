@@ -1,2 +1,2 @@
-# Crytpto
+# Crypto
 Cryptographic Algorithms
