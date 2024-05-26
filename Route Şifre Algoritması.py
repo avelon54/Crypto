@@ -1,4 +1,5 @@
 #Route Crypto Algorithm
+
 def route_sifre_coz(encrypted_text: str, column_count: int, clockwise = True, starting_position = 1):  
     """
     This function decrypts a message that has been encrypted using the route cipher algorithm, based on the specified direction (clockwise or counter-clockwise).
@@ -155,7 +156,7 @@ def route_sifre_coz(encrypted_text: str, column_count: int, clockwise = True, st
 # route_encrypted_text = 'XRAASELLM'
 # column_count = 3
 # sonuc = route_sifre_coz(route_encrypted_text,column_count, True , 2)
-
+#PR test
 route_encrypted_text = 'AİRERXXEDRANNVATÇEHEYNHİ'
 column_count = 4
 sonuc = route_sifre_coz(route_encrypted_text,column_count, True , 1)
